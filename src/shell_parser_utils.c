@@ -1,6 +1,6 @@
 #include "../inc/pipex_bonus.h"
 
-char	*allocate_and_copy(char *argv, int start, int len)
+char	*allocate_and_copy(char *argv, size_t start, size_t len)
 {
 	char	*cmd;
 	size_t		j;
@@ -15,7 +15,7 @@ char	*allocate_and_copy(char *argv, int start, int len)
 	return (cmd);
 }
 
-int	skip_quoted_section(char *argv, int *i)
+int	skip_quoted_section(char *argv, size_t *i)
 {
 	char	quote;
 
@@ -27,7 +27,7 @@ int	skip_quoted_section(char *argv, int *i)
 	return (1);
 }
 
-int	skip_braced_section(char *argv, int *i)
+int	skip_braced_section(char *argv, size_t *i)
 {
 	unsigned int	brace_count;
 
@@ -44,7 +44,7 @@ int	skip_braced_section(char *argv, int *i)
 	return (1);
 }
 
-int	extract_quoted_content(char *argv, int *i, int *start)
+int	extract_quoted_content(char *argv, size_t *i, size_t *start)
 {
 	char	quote;
 	size_t		len;
@@ -62,9 +62,9 @@ int	extract_quoted_content(char *argv, int *i, int *start)
 	return (len);
 }
 
-int	extract_regular_content(char *argv, int *i, int *start)
+int	extract_regular_content(char *argv, size_t *i, size_t *start)
 {
-	int	len;
+	size_t	len;
 
 	*start = *i;
 	len = 0;

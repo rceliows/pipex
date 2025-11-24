@@ -2,7 +2,7 @@
 
 static int	command_count(char *argv)
 {
-	int	count;
+	size_t	count;
 	size_t	i;
 
 	i = 0;
@@ -48,7 +48,7 @@ static int	extract_braced_content(char *argv, int *i, int *start)
 	return (len);
 }
 
-static int	extract_content(char *argv, int *i, int *start)
+static int	extract_content(char *argv, size_t *i, size_t *start)
 {
 	if (argv[*i] == '\'' || argv[*i] == '"')
 		return (extract_quoted_content(argv, i, start));
@@ -58,7 +58,7 @@ static int	extract_content(char *argv, int *i, int *start)
 		return (extract_regular_content(argv, i, start));
 }
 
-char	*cmd_prep(char *argv, int *i)
+char	*cmd_prep(char *argv, size_t *i)
 {
 	size_t	start;
 	size_t	len;

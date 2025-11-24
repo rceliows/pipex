@@ -11,7 +11,7 @@ void	command_null(t_pipex *data, pid_t *pids)
 
 void	close_unused_pipes(t_pipex *data, int cmd_index)
 {
-	int	i;
+	pid_t	i;
 
 	i = 0;
 	while (i < data->num_commands - 1)

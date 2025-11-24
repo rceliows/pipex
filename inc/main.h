@@ -71,17 +71,16 @@ char	*join_path_and_cmd(char *dir, char *cmd);
 char	*full_command_path(char **paths, char *cmd);
 char	*search_in_env_path(char *cmd, char **envp);
 char	*search_in_default_paths(char *cmd);
-int		skip_quoted_section(char *argv, size_t *i);
-int		skip_braced_section(char *argv, size_t *i);
-int		extract_quoted_content(char *argv, size_t *i, size_t *start);
-int		extract_regular_content(char *argv, size_t *i, size_t *start);
+size_t		skip_quoted_section(char *argv, size_t *i);
+size_t		skip_braced_section(char *argv, size_t *i);
+size_t		extract_quoted_content(char *argv, size_t *i, size_t *start);
+size_t		extract_regular_content(char *argv, size_t *i, size_t *start);
 
 // Shell parsing
 char	**shell_parser(char *argv);
 char	*allocate_and_copy(char *argv, size_t start, size_t len);
 char	**handle_empty_input(void);
 char	**parse_arguments(char *argv, size_t arg_count);
-char	*cmd_prep(char *argv, size_t *i);
 
 // Error handling
 void	command_not_found(char *cmd, t_pipex *data, pid_t *pids);

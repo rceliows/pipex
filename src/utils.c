@@ -13,7 +13,7 @@ void	strderr_exit(char *msg, t_pipex *data)
 	exit(EXIT_FAILURE);
 }
 
-void	free_string_array(char **array, int num_cmds)
+void	free_string_array(char **array, size_t num_cmds)
 {
 	size_t	i;
 
@@ -39,7 +39,7 @@ void	free_string_array(char **array, int num_cmds)
 	free(array);
 }
 
-void	free_int_array(int **array, int size)
+void	free_int_array(int **array, size_t size)
 {
 	size_t	i;
 

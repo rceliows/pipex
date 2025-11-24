@@ -20,8 +20,8 @@ char	**handle_empty_input(void)
 char	**parse_arguments(char *argv, int arg_count)
 {
 	char	**parsed;
-	int		i;
-	int		idx;
+	size_t		i;
+	size_t		idx;
 
 	parsed = malloc(sizeof(char *) * (arg_count + 1));
 	if (!parsed)
