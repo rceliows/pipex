@@ -1,4 +1,4 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 static void	start_fail(t_pipex *data)
 {

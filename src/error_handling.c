@@ -1,4 +1,4 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 static void	write_atomic_error(const char *prefix,
 			const char *msg, const char *suffix)

@@ -1,9 +1,9 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 static void	read_here_doc_content(char *limiter, int write_fd)
 {
-	char	*line;
-	char	*limiter_with_newline;
+	char		*line;
+	char		*limiter_with_newline;
 	size_t		limiter_len;
 
 	limiter_len = ft_strlen(limiter);

@@ -1,7 +1,7 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 static	pid_t	fork_and_execute_command(t_pipex *data,
-			int cmd_index, pid_t *pids)
+			size_t cmd_index, pid_t *pids)
 {
 	pid_t	pid;
 
@@ -36,9 +36,9 @@ static void	close_all_pipes(t_pipex *data)
 static void	wait_for_all_children(t_pipex *data, pid_t *pids)
 {
 	size_t	i;
-	int	status;
-	int	last_status;
-	int	exit_status;
+	int		status;
+	int		last_status;
+	int		exit_status;
 
 	i = 0;
 	last_status = 0;
@@ -77,7 +77,7 @@ static	pid_t	*allocate_pids_array(t_pipex *data)
 void	execute_multiple_pipelines(t_pipex *data)
 {
 	pid_t	*pids;
-	size_t		i;
+	size_t	i;
 
 	pids = allocate_pids_array(data);
 	i = 0;

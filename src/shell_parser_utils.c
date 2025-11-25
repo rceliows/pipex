@@ -1,21 +1,24 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 char	*allocate_and_copy(char *argv, size_t start, size_t len)
 {
 	char	*cmd;
-	size_t		j;
+	size_t	j;
 
 	cmd = malloc(len + 1);
 	if (!cmd)
 		return (NULL);
-	j = -1;
-	while (++j < len)
+	j = 0;
+	while (j < len)
+	{
 		cmd[j] = argv[start + j];
+		j++;
+	}
 	cmd[len] = '\0';
 	return (cmd);
 }
 
-int	skip_quoted_section(char *argv, size_t *i)
+size_t	skip_quoted_section(char *argv, size_t *i)
 {
 	char	quote;
 
@@ -27,7 +30,7 @@ int	skip_quoted_section(char *argv, size_t *i)
 	return (1);
 }
 
-int	skip_braced_section(char *argv, size_t *i)
+size_t	skip_braced_section(char *argv, size_t *i)
 {
 	unsigned int	brace_count;
 
@@ -44,10 +47,10 @@ int	skip_braced_section(char *argv, size_t *i)
 	return (1);
 }
 
-int	extract_quoted_content(char *argv, size_t *i, size_t *start)
+size_t	extract_quoted_content(char *argv, size_t *i, size_t *start)
 {
 	char	quote;
-	size_t		len;
+	size_t	len;
 
 	quote = argv[(*i)++];
 	*start = *i;
@@ -62,7 +65,7 @@ int	extract_quoted_content(char *argv, size_t *i, size_t *start)
 	return (len);
 }
 
-int	extract_regular_content(char *argv, size_t *i, size_t *start)
+size_t	extract_regular_content(char *argv, size_t *i, size_t *start)
 {
 	size_t	len;
 

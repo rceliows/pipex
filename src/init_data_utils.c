@@ -1,4 +1,4 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 void	initialize_data_fields(t_pipex *data,
 			int argc, char **argv, char **envp)
@@ -34,8 +34,8 @@ char	*search_in_env_path(char *cmd, char **envp)
 
 char	*search_in_default_paths(char *cmd)
 {
-	char	**default_paths;
-	char	*full_path;
+	char		**default_paths;
+	char		*full_path;
 	size_t		i;
 
 	default_paths = (char *[]){"/bin", "/usr/bin", "/usr/local/bin", NULL};

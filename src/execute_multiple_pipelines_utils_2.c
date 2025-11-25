@@ -1,4 +1,4 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 void	command_null(t_pipex *data, pid_t *pids)
 {
@@ -9,9 +9,9 @@ void	command_null(t_pipex *data, pid_t *pids)
 	exit(126);
 }
 
-void	close_unused_pipes(t_pipex *data, int cmd_index)
+void	close_unused_pipes(t_pipex *data, size_t cmd_index)
 {
-	pid_t	i;
+	size_t	i;
 
 	i = 0;
 	while (i < data->num_commands - 1)
@@ -25,7 +25,7 @@ void	close_unused_pipes(t_pipex *data, int cmd_index)
 	}
 }
 
-void	execute_command(t_pipex *data, int cmd_index, pid_t *pids)
+void	execute_command(t_pipex *data, size_t cmd_index, pid_t *pids)
 {
 	if (!data->cmds[cmd_index] || !data->cmds[cmd_index][0]
 			|| !data->cmds[cmd_index][0][0])

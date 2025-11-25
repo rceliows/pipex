@@ -1,4 +1,4 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 static void	setup_first_command_input(t_pipex *data, pid_t *pids)
 {
@@ -66,7 +66,7 @@ void	setup_first_command(t_pipex *data, pid_t *pids)
 	execute_command(data, 0, pids);
 }
 
-void	setup_middle_command(t_pipex *data, int cmd_index, pid_t *pids)
+void	setup_middle_command(t_pipex *data, size_t cmd_index, pid_t *pids)
 {
 	if (dup2(data->pipes[cmd_index - 1][0], STDIN_FILENO) == -1)
 		error_exit("dup2");
@@ -82,7 +82,7 @@ void	setup_middle_command(t_pipex *data, int cmd_index, pid_t *pids)
 
 void	setup_last_command(t_pipex *data, pid_t *pids)
 {
-	int	last_cmd_index;
+	size_t	last_cmd_index;
 
 	last_cmd_index = data->num_commands - 1;
 	if (dup2(data->pipes[last_cmd_index - 1][0], STDIN_FILENO) == -1)

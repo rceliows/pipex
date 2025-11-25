@@ -1,8 +1,8 @@
-#include "../inc/pipex_bonus.h"
+#include "../inc/main.h"
 
 char	*find_command_start(char **envp)
 {
-	char	*path_env;
+	char		*path_env;
 	size_t		i;
 
 	i = 0;
@@ -36,7 +36,7 @@ char	*join_path_and_cmd(char *dir, char *cmd)
 
 char	*full_command_path(char **paths, char *cmd)
 {
-	char	*full_path;
+	char		*full_path;
 	size_t		i;
 
 	if (!paths || !cmd)

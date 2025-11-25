@@ -11,25 +11,21 @@ OBJ_DIR		= obj/
 CC		= cc
 CFLAGS		= -Wall -Wextra -Werror -I$(INC)
 RM		= rm -f
-AR		= ar rcs
 
 # Source Files
-PIPEX		= $(SRC_DIR)main.c						\
-		$(SRC_DIR)error_handling.c					\
-		$(SRC_DIR)execute_multiple_pipelines.c			\
-		$(SRC_DIR)execute_multiple_pipelines_utils.c		\
-		$(SRC_DIR)execute_multiple_pipelines_utils_2.c		\
-		$(SRC_DIR)here_doc.c					\
-		$(SRC_DIR)init_data.c					\
-		$(SRC_DIR)init_data_utils.c					\
-		$(SRC_DIR)path.c						\
-		$(SRC_DIR)shell_parser.c					\
-		$(SRC_DIR)shell_parser_utils.c				\
-		$(SRC_DIR)shell_parser_utils_2.c				\
+SRCS		= $(SRC_DIR)main.c \
+		$(SRC_DIR)error_handling.c \
+		$(SRC_DIR)execute_multiple_pipelines.c \
+		$(SRC_DIR)execute_multiple_pipelines_utils.c \
+		$(SRC_DIR)execute_multiple_pipelines_utils_2.c \
+		$(SRC_DIR)here_doc.c \
+		$(SRC_DIR)init_data.c \
+		$(SRC_DIR)init_data_utils.c \
+		$(SRC_DIR)path.c \
+		$(SRC_DIR)shell_parser.c \
+		$(SRC_DIR)shell_parser_utils.c \
+		$(SRC_DIR)shell_parser_utils_2.c \
 		$(SRC_DIR)utils.c
-
-# Default to mandatory sources
-SRCS		= $(SRC)
 
 # Apply the pattern substitution
 OBJ		= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
