@@ -2,7 +2,6 @@
 # define MAIN_H
 
 # include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
